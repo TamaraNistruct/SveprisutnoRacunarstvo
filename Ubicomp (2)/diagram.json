@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Tamara Milovanovic",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -369.7, "left": -254.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -470.1,
+      "left": 157.8,
+      "attrs": { "humidity": "73", "temperature": "35.3" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -580.6,
+      "left": -145,
+      "attrs": { "travelLength": "30" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "imu1:SDA", "esp:D21", "purple", [ "h-61.49", "v-54.45" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:VCC", "esp:VIN", "red", [ "h-173.27", "v266.46" ] ],
+    [ "esp:D34", "pot1:SIG", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
